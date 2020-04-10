@@ -5,12 +5,19 @@
 }
 
 body {
-  font-size: 14px;
+  font-size: 18px;
+  max-width: 940px;
+  margin: 20px auto;
 }
 
+h1 {
+  margin-bottom: 20px;
+}
 div {
   width: 100%;
   margin: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 div li {
@@ -23,17 +30,41 @@ div li + li {
 }
 
 button {
-  background: #7159c1;
+  background: #9a8edf;
   color: #fff;
   border: 0;
+  width: 150px;
   padding: 10px 15px;
   cursor: pointer;
   margin-top: 15px;
+  border-radius: 4px;
   font-weight: bold;
   font-size: 14px;
+  align-self: flex-end;
 }
 
 div li button {
   margin: 0 15px;
-  background: #ca4949;
+  background: #9a8edf;
+}
+
+div button {
+  margin-right: 15px;
+}
+
+ul {
+  background: #eee;
+  width: 100%;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #7159c1;
+  color: #fff;
+}
+
+li p {
+  margin-left: 20px;
 }
