@@ -1,17 +1,19 @@
 import React, {useState, useEffect} from "react";
+import { Form, Input } from '@rocketseat/unform'
 import api from './services/api'
 import "./styles.css";
 
 function App() {
   const [repositories, setRepositories] = useState([])
 
-  async function handleAddRepository() {
+  async function handleAddRepository(data, { resetForm }) {
     const response = await api.post('/repositories', {
-      title: 't',
-      url: 'x',
+      title: `${data.repositoryTitle}`,
+      url: `${data.repositoryUrl}`,
       techs: ['1', '2'],
     })
-    setRepositories([...repositories, response.data])
+    setRepositories([...repositories, response.data]);
+    // resetForm()
   }
   
   async function handleRemoveRepository(id) {
@@ -22,7 +24,7 @@ function App() {
   useEffect(() => {
     api.get('/repositories').then(response => {setRepositories(response.data)}
     );
-  }, []);
+  }, [repositories]);
   
   return (
     <div>
@@ -30,14 +32,18 @@ function App() {
       <ul data-testid="repository-list">
         {repositories.map(repository => (
         <li key={repository.id}>
-          {repository.title}
+          {`title: ${repository.title}, URL: ${repository.url}`}
           <button key={repository.id} onClick={() => handleRemoveRepository(repository.id)}>
             Remover
           </button>
         </li>))
         }
       </ul>
-        <button onClick={() => handleAddRepository()}>Adicionar</button>
+      <Form onSubmit={handleAddRepository}>
+          <Input name="repositoryTitle" type="text" placeholder="Repository Title..."/>
+          <Input name="repositoryUrl" type="text" placeholder="Repository Title..."/>
+          <button type="submit">Adicionar</button>
+      </Form>
     </div>
   );
 }
