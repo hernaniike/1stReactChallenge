@@ -2,7 +2,7 @@
 
 This project is part of the GoStack(Node + ReactJS + React-Native) RockeatSeat Bootcamp.
 
-This Web Application is a front end application where you can which communicate with this [NodeJs API](https://github.com/hernaniike/nodejsApplication)  
+This Web Application is a front end application where you can create a new repository title and url in NodeJs API and remove it. [NodeJs API](https://github.com/hernaniike/nodejsApplication)  
 
 ### How to Run into your computer
 
@@ -13,5 +13,3 @@ In your project folder to install all dependencies.
 ```
 yarn
 ```
-
-Download Insomnia to simulate the HTTP Requests from [Insomnia WebSite](https://insomnia.rest/)
